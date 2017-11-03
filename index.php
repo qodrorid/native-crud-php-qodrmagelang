@@ -22,6 +22,7 @@ $results = mysqli_query($mysqli, "SELECT * FROM users");
                 <th>Email</th>
                 <th>Nama</th>
                 <th>Alamat</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,10 @@ $results = mysqli_query($mysqli, "SELECT * FROM users");
                         <td><?php echo $res['nama'] ?></td>
                         <td><?php echo $res['email'] ?></td>
                         <td><?php echo $res['alamat'] ?></td>
+                        <td>
+                            <a onclick="return confirm('Delete data?')" href="delete.php?id=<?php echo $res['id'] ?>">Delete</a>
+                            <a href="edit.php?id=<?php echo $res['id'] ?>">Edit</a>
+                        </td>
                     </tr>
                 <?php } ?>    
         </tbody>
