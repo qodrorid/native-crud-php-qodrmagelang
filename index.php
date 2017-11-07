@@ -1,12 +1,17 @@
 <?php
+session_start();
 include_once("config.php");
+
+if(!isset($_SESSION['email'])) {
+    header("Location: login.php");
+}
 
 $results = mysqli_query($mysqli, "SELECT * FROM users");
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="    en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +19,9 @@ $results = mysqli_query($mysqli, "SELECT * FROM users");
     <title>Belajar CRUD</title>
 </head>
 <body>
-    <a href="add.php">Tambah Data</a> </br>
+    <a href="add.php">Tambah Data</a> | 
+    <a href="logout.php">Logout</a>
+     </br>
     <table border="1" width="100%">
         <thead>
             <tr>

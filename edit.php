@@ -1,4 +1,10 @@
-<?php 
+<?php
+    session_start();
+    
+    if(!isset($_SESSION['email'])) {
+        header("Location: login.php");
+    }
+
     include_once("config.php");
     $id = $_GET['id'];
     $query = mysqli_query($mysqli, "SELECT * FROM users
